@@ -1,8 +1,7 @@
 function status(request, response) {
-    response.setHeader('Content-Type', 'application/xml');
-
+  console.log('oi')
     response
-    .status(400)
+    .status(200)
     .json({ "response" : "deu certo ?" })
 }
 
