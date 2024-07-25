@@ -1,4 +1,3 @@
-import { version } from 'react';
 import database from '/infra/database.js';
 
 async function status(request, response) {
@@ -12,7 +11,13 @@ async function status(request, response) {
 
     const databaseMaxConcectionsValue = parseInt(databaseMaxConectionsResult.rows[0].max_connections);
 
-    const databaseOpenedConnetionsResult = await database.query("SELECT COUNT(*) AS opened_connections FROM pg_stat_activity WHERE datname = 'local_db';")
+    const databaseName = process.env.POSTGRES_DB;
+
+    const databaseOpenedConnetionsResult = await database
+      .query({
+        text: 'SELECT COUNT(*) AS opened_connections FROM pg_stat_activity WHERE datname = $1;',
+        values: [databaseName]
+      });
 
     const databaseOpenedConnetionsValue = parseInt(databaseOpenedConnetionsResult.rows[0].opened_connections);
 
