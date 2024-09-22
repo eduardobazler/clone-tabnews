@@ -20,7 +20,7 @@ async function waitForAllServices() {
 }
 
 const retryService = {
-  waitForAllServices
-}
+  waitForAllServices,
+};
 
 export default retryService;
