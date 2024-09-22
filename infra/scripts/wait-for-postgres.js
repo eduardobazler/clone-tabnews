@@ -5,7 +5,7 @@ const notContains = -1;
 function checkPostgres() {
   exec("docker exec postgres-dev pg_isready --host localhost", handleReturn);
 
-  function handleReturn(_error, stdout, _stderr) {
+  function handleReturn(_error, stdout) {
     if (stdout.search("accepting connections") === notContains) {
       process.stdout.write(".");
       checkPostgres();
