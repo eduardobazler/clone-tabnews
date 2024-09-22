@@ -19,6 +19,8 @@ async function waitForAllServices() {
   }
 }
 
-export default {
-  waitForAllServices,
-};
+const retryService = {
+  waitForAllServices
+}
+
+export default retryService;
