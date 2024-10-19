@@ -44,4 +44,3 @@ jobs:
       - run: npm ci
 
       - run: npx secretlint .
-
