@@ -1,4 +1,4 @@
-import database from "infra/database.js";
+import database from "infra/database/database.js";
 
 export const cleanDatabase = async () => {
   await database.query({

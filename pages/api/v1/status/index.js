@@ -1,4 +1,4 @@
-import database from "/infra/database.js";
+import database from "/infra/database/database.js";
 
 async function status(_request, response) {
   const updated_at = new Date().toISOString("pt-br");
