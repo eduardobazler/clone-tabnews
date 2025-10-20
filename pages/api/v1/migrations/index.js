@@ -4,7 +4,6 @@ import database from "/infra/database/database.js";
 
 const allowedMethods = ["GET", "POST"];
 
-
 export default async function migrations(request, response) {
   if (!allowedMethods.includes(request.method)) {
     return response.status(405).json({
